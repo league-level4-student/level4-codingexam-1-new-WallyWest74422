@@ -23,7 +23,7 @@ package scheduler;
  * - Make sure any enums or classes you create have properly encapsulated member
  *   variables.
  */
-public class Scheduler {
+public class Scheduler{
 
     public static void main(String[] args) {
 
