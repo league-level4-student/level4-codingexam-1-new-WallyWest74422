@@ -11,4 +11,10 @@ public class Event {
 	        this.time = time;
 	        this.description = description;
 }
+	    public void returnEvent() {
+	    	System.out.println(" ");
+	    	System.out.print(time);
+	    	System.out.print(" - ");
+	    	System.out.print(description);
+	    }
 }

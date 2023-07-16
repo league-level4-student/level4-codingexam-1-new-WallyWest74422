@@ -2,7 +2,7 @@ package scheduler;
 
 import java.util.Scanner;
 
-public class Monday extends Day{
+public class Sunday extends Day{
 
 	LinkedList<Event> daily = new LinkedList<Event>();
 	Scanner scammer = new Scanner(System.in);
@@ -23,7 +23,7 @@ public class Monday extends Day{
 		// TODO Auto-generated method stub
 		System.out.println("Please enter a time for your new event");
 		Double time = scammer.nextDouble();
-		System.out.println("Great! Next please enter a short description for your new event");
+		System.out.println("Wonderful! Next please enter a short description for your new event");
 		String description = scammer.next();
 		daily.add(new Event(time, description));
 	}
