@@ -38,8 +38,16 @@ public class Sunday extends Day {
 		
 		if (daily.size() == 0) { //For size = 0
 			daily.add(new Event(time, description));
-		} else if(daily.size()==1){
-			
+		} else if(daily.size()==1){ //For size 1
+			if (daily.getHead().getValue().getTime() > time) {
+				daily.add(event);
+				Node<Event> first = new Node<Event>(event);
+				daily.getHead().setPrev(first);
+				first.setNext(daily.getHead());
+				daily.setHead(first);
+			}else {
+				daily.add(new Event(time, description));
+			}
 		}
 			Node<Event> current = daily.getHead().getNext();
 			Node<Event> prev = current.getPrev();
@@ -82,7 +90,7 @@ public class Sunday extends Day {
 
 		}
 
-	}
+	
 
 	@Override
 	public void removeEvent() {
