@@ -24,7 +24,7 @@ public class Monday extends Day{
 		System.out.println("Please enter a time for your new event");
 		Double time = scammer.nextDouble();
 		System.out.println("Great! Next please enter a short description for your new event");
-		String description = scammer.next();
+		String description = scammer.nextLine();
 		daily.add(new Event(time, description));
 	}
 
