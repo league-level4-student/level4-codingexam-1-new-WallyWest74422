@@ -15,7 +15,8 @@ public class Sunday extends Day {
 			System.out.println("There is currently nothing scheduled for today.");
 		} else if (daily.size() == 1) {
 			current.getValue().returnEvent();
-		} else {
+		} else if (daily.size() > 1) {
+			System.out.println(daily.size());
 			while (current.getNext() != null) {
 				current.getValue().returnEvent();
 				current = current.getNext();
@@ -35,62 +36,57 @@ public class Sunday extends Day {
 		scammer.nextLine();
 		String description = scammer.nextLine();
 		Event event = new Event(time, description);
-		
-		if (daily.size() == 0) { //For size = 0
+
+		if (daily.size() == 0) { // For size = 0
 			daily.add(new Event(time, description));
-		} else if(daily.size()==1){ //For size 1
-			if (daily.getHead().getValue().getTime() > time) {
-				daily.add(event);
-				Node<Event> first = new Node<Event>(event);
-				daily.getHead().setPrev(first);
-				first.setNext(daily.getHead());
-				daily.setHead(first);
-			}else {
-				daily.add(new Event(time, description));
-			}
-		}
-			Node<Event> current = daily.getHead().getNext();
-			Node<Event> prev = current.getPrev();
-			if (daily.getHead().getValue().getTime() > time) {
-				daily.add(event);
-				Node<Event> first = new Node<Event>(event);
-				daily.getHead().setPrev(first);
-				first.setNext(daily.getHead());
-				daily.setHead(first);
-			}
-			while (current.getNext() != null) {
-				if (current.getValue().getTime() > time) {
-					daily.add(event);
-					Node<Event> pos = new Node<Event>(event);
-					prev.setNext(pos);
-					pos.setNext(current);
-					current.setPrev(pos);
-					pos.setNext(current);
+			System.out.println("Adding to size = 0 ");
 
+		} else if (daily.size() >= 1) {
+			Node<Event> current = daily.getHead();
+			if (current.getValue().getTime() > time) {
+//				daily.add(event);
+				System.out.println("Adding to size >= 1 - before Head");
+				Node<Event> first = new Node<Event>(event);
+				daily.getHead().setPrev(first);
+				first.setNext(daily.getHead());
+				daily.setHead(first);
+			} else if (daily.size() == 1 && daily.getHead().getValue().getTime() < time) {
+				daily.add(event);
+				System.out.println("Adding to size = 1 - after Event");
+			} else {
+				while (current.getNext() != null) {
+					Node<Event> next = current.getNext();
+					if (current.getValue().getTime() < time && next.getValue().getTime() > time) {
+//						daily.add(event);
+						System.out.println("Adding to size > 1 - after current");
+						Node<Event> pos = new Node<Event>(event);
+						current.setNext(pos);
+						pos.setNext(next);
+						next.setPrev(pos);
+//						pos.setPrev(current);
+
+					}
+					current = current.getNext();
+					next = current.getNext();
 				}
-				current = current.getNext();
-				prev = current.getPrev();
-			}
-			Node<Event> end = daily.getTail();
-			Node<Event> penultimate = end.getPrev();
-			if (end.getValue().getTime() > time) {
-				daily.add(event);
-				Node<Event> pos = new Node<Event>(event);
-				penultimate.setNext(pos);
-				pos.setNext(end);
-				end.setPrev(pos);
-				pos.setNext(end);
-			} else if (end.getValue().getTime() < time) {
-				daily.add(event);
-				Node<Event> last = new Node<Event>(event);
-				last.setPrev(daily.getTail());
-				daily.getTail().setNext(last);
-				daily.setTail(last);
-			}
 
+				Node<Event> end = daily.getTail();
+//				System.out.println("end = " +end.getValue().getTime());
+				System.out.println("time = " +time);	
+				if(daily.getTail()!=null) {
+				if (end.getValue().getTime() < time) {
+//					daily.add(event);
+					System.out.println("Adding to size > 1 - after Tail");
+					Node<Event> last = new Node<Event>(event);
+					last.setPrev(daily.getTail());
+					daily.getTail().setNext(last);
+					daily.setTail(last);
+				}
+				}
+
+			}
 		}
-
-	
+	}
 
 	@Override
 	public void removeEvent() {

@@ -35,30 +35,30 @@ public class Scheduler extends Day {
 		System.out.println(
 				"After selecting a day, use the console commands 'a', 'r', and 'v' to either add an event, remove an event, or view the daily schedule.");
 		Sunday s = new Sunday();
-		Monday m = new Monday();
+//		Monday m = new Monday();
 		do {
 			String input = scam.next();
 			if (input.equals("s")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
 					s.addEvent();
-					// System.out.println("Adding event.");
+					 System.out.println("Adding event.");
 				} else if (modification.equals("r")) {
 					s.removeEvent();
-					// System.out.println("Removing event.");
+					 System.out.println("Removing event.");
 				} else if (modification.equals("v")) {
 					s.viewDay();
-					// System.out.println("Viewing event.");
+					 System.out.println("Viewing event.");
 				}
 			}
 			if (input.equals("m")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-					m.addEvent();
+//					m.addEvent();
 				} else if (modification.equals("r")) {
-					m.removeEvent();
+//					m.removeEvent();
 				} else if (modification.equals("v")) {
-					m.viewDay();
+//					m.viewDay();
 				}
 			}
 		} while (active == true);
