@@ -27,7 +27,7 @@ import java.util.Scanner;
  */
 public class Scheduler extends Day {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SchedulingConflictException  {
 		Scanner scam = new Scanner(System.in);
 		boolean active = true;
 		System.out.println(
@@ -35,30 +35,83 @@ public class Scheduler extends Day {
 		System.out.println(
 				"After selecting a day, use the console commands 'a', 'r', and 'v' to either add an event, remove an event, or view the daily schedule.");
 		Sunday s = new Sunday();
-//		Monday m = new Monday();
+		Monday m = new Monday();
+		Tuesday t = new Tuesday();
+		Wednesday w = new Wednesday();
+		Thursday th = new Thursday();
+		Friday f = new Friday();
+		Saturday sa = new Saturday();
+		
 		do {
 			String input = scam.next();
 			if (input.equals("s")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-					s.addEvent();
-					 System.out.println("Adding event.");
+						s.addEvent();
 				} else if (modification.equals("r")) {
 					s.removeEvent();
-					 System.out.println("Removing event.");
 				} else if (modification.equals("v")) {
 					s.viewDay();
-					 System.out.println("Viewing event.");
 				}
 			}
 			if (input.equals("m")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-//					m.addEvent();
+					m.addEvent();
 				} else if (modification.equals("r")) {
-//					m.removeEvent();
+					m.removeEvent();
 				} else if (modification.equals("v")) {
-//					m.viewDay();
+					m.viewDay();
+				}
+			}
+			if (input.equals("t")) {
+				String modification = scam.next();
+				if (modification.equals("a")) {
+						s.addEvent();
+				} else if (modification.equals("r")) {
+					s.removeEvent();
+				} else if (modification.equals("v")) {
+					s.viewDay();
+				}
+			}
+			if (input.equals("w")) {
+				String modification = scam.next();
+				if (modification.equals("a")) {
+						s.addEvent();
+				} else if (modification.equals("r")) {
+					s.removeEvent();
+				} else if (modification.equals("v")) {
+					s.viewDay();
+				}
+			}
+			if (input.equals("th")) {
+				String modification = scam.next();
+				if (modification.equals("a")) {
+						s.addEvent();
+				} else if (modification.equals("r")) {
+					s.removeEvent();
+				} else if (modification.equals("v")) {
+					s.viewDay();
+				}
+			}
+			if (input.equals("f")) {
+				String modification = scam.next();
+				if (modification.equals("a")) {
+						s.addEvent();
+				} else if (modification.equals("r")) {
+					s.removeEvent();
+				} else if (modification.equals("v")) {
+					s.viewDay();
+				}
+			}
+			if (input.equals("sa")) {
+				String modification = scam.next();
+				if (modification.equals("a")) {
+						s.addEvent();
+				} else if (modification.equals("r")) {
+					s.removeEvent();
+				} else if (modification.equals("v")) {
+					s.viewDay();
 				}
 			}
 		} while (active == true);
