@@ -67,51 +67,51 @@ public class Scheduler extends Day {
 			if (input.equals("t")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-						s.addEvent();
+						t.addEvent();
 				} else if (modification.equals("r")) {
-					s.removeEvent();
+					t.removeEvent();
 				} else if (modification.equals("v")) {
-					s.viewDay();
+					t.viewDay();
 				}
 			}
 			if (input.equals("w")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-						s.addEvent();
+						w.addEvent();
 				} else if (modification.equals("r")) {
-					s.removeEvent();
+					w.removeEvent();
 				} else if (modification.equals("v")) {
-					s.viewDay();
+					w.viewDay();
 				}
 			}
 			if (input.equals("th")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-						s.addEvent();
+						th.addEvent();
 				} else if (modification.equals("r")) {
-					s.removeEvent();
+					th.removeEvent();
 				} else if (modification.equals("v")) {
-					s.viewDay();
+					th.viewDay();
 				}
 			}
 			if (input.equals("f")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-						s.addEvent();
+						f.addEvent();
 				} else if (modification.equals("r")) {
-					s.removeEvent();
+					f.removeEvent();
 				} else if (modification.equals("v")) {
-					s.viewDay();
+					f.viewDay();
 				}
 			}
 			if (input.equals("sa")) {
 				String modification = scam.next();
 				if (modification.equals("a")) {
-						s.addEvent();
+						sa.addEvent();
 				} else if (modification.equals("r")) {
-					s.removeEvent();
+					sa.removeEvent();
 				} else if (modification.equals("v")) {
-					s.viewDay();
+					sa.viewDay();
 				}
 			}
 		} while (active == true);

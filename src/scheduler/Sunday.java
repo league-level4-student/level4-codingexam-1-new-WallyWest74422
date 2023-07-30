@@ -38,7 +38,22 @@ public class Sunday extends Day {
 		if (daily.size() == 0) { // For size = 0
 			daily.add(new Event(time, description));
 
-		} else if (daily.size() >= 1) {
+		} else if(daily.size()==1){ //For size = 1
+			Node<Event> current = daily.getHead();
+			if(current.getValue().getTime().equals(time)) {
+				System.out.println("ERROR: Time slot is already taken!");
+				throw new SchedulingConflictException();
+			}else if(current.getValue().getTime()>time){
+				Node<Event> first = new Node<Event>(event);
+				daily.getHead().setPrev(first);
+				first.setNext(daily.getHead());
+				daily.setHead(first);
+			} else if(current.getValue().getTime()<time) {
+				daily.add(event);
+			}
+		}
+			else if (daily.size() >= 1) {
+		
 			Node<Event> current = daily.getHead();
 			Node<Event> next = current.getNext();
 			while (current.getNext() != null) {
